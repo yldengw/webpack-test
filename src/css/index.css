@@ -1,0 +1,8 @@
+body{
+    background:mediumvioletred;
+    color:yellowgreen;
+}
+#pic{
+    background-image: url(../images/dog.png);
+    width:900px;height:900px;
+}
