@@ -3,7 +3,7 @@ body{
     color:yellowgreen;
 }
 #pic{
-    background-image: url(http://127.0.0.1:8080images/b5ead346e5b8842b787aeda10d3195cc.png);
+    background-image: url(assets/b5ead346e5b8842b787aeda10d3195cc.png);
     width:900px;height:900px;
 }#leesBox {
   width: 300px;
