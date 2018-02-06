@@ -73,6 +73,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_index_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_main_less__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_main_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_main_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_style_scss__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__css_style_scss__);
+
 
 
 document.getElementById('title').innerHTML='Hello Webpack 东方kkkk大道ni急急急mei';
@@ -85,6 +88,12 @@ document.getElementById('title').innerHTML='Hello Webpack 东方kkkk大道ni急�
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

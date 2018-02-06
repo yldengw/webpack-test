@@ -1,0 +1,7 @@
+$nav-color:red;
+#nav {
+    $width:50%;
+    width:$width;
+    height:100px;
+    background-color: $nav-color;
+}

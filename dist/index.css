@@ -10,3 +10,7 @@ body{
   height: 600px;
   background: yellowgreen;
 }
+#nav {
+  width: 50%;
+  height: 100px;
+  background-color: red; }

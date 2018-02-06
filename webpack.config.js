@@ -58,6 +58,21 @@ module.exports = {
                         }],
                     fallback:'style-loader'
                 })
+            },
+            {
+                test:/\.scss/,
+                // use:[{
+                //     loader:'style-loader'
+                // },{
+                //     loader:'css-loader'
+                // },{
+                //     loader:'sass-loader'
+                // }]
+                // sass文件分离，在index.css加入
+                use: extractTextPlugin.extract({
+                    use:[{ loader:'css-loader'},{loader:'sass-loader'}],
+                    fallback:'style-loader'
+                })
             }
         ]
     },
