@@ -1,16 +1,27 @@
-body{
-    background:mediumvioletred;
-    color:yellowgreen;
+body {
+  background: mediumvioletred;
+  color: yellowgreen;
 }
-#pic{
-    background-image: url(assets/b5ead346e5b8842b787aeda10d3195cc.png);
-    width:900px;height:900px;
-}#leesBox {
+
+#pic {
+  background-image: url(assets/b5ead346e5b8842b787aeda10d3195cc.png);
+  width: 900px;
+  height: 900px;
+  border: 5px solid green;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-box-shadow: 0 0 0 black;
+  box-shadow: 0 0 0 black;
+}
+
+#leesBox {
   width: 300px;
   height: 600px;
   background: yellowgreen;
 }
+
 #nav {
   width: 50%;
   height: 100px;
-  background-color: red; }
+  background-color: red;
+}

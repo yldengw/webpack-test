@@ -5,4 +5,11 @@ body{
 #pic{
     background-image: url(../images/dog.png);
     width:900px;height:900px;
+    border: 5px solid green;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 black;
+}
+#demp {
+    font-size: 13px;
+    color:red;
 }

@@ -2,6 +2,8 @@ const path = require('path');
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require("extract-text-webpack-plugin");
+const glob = require("glob");
+const pruifyCssPlugin = require("purifycss-webpack");
 // var website = {
 //     publicPath: 'http://127.0.0.1:8080'
 // }
@@ -24,11 +26,11 @@ module.exports = {
                 use: extractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [{
-                        loader:'css-loader'
+                        loader:'css-loader',options:{importLoaders :1}
                         // query:{
                         //     name: 'index.css'
                         // }
-                    }]
+                    },'postcss-loader']
                   })
             },
             {
@@ -81,7 +83,12 @@ module.exports = {
         new htmlPlugin({
             template:'./index.html'
         }),
-        new extractTextPlugin('index.css')
+        new extractTextPlugin('index.css'),
+        // 打包删掉冗余的css
+        new pruifyCssPlugin({
+            paths:glob.sync(path.join(__dirname,'*.html'))
+        })
+
     ],
     devServer: {
         historyApiFallback: true,
