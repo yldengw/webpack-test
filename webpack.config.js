@@ -8,6 +8,7 @@ const pruifyCssPlugin = require("purifycss-webpack");
 //     publicPath: 'http://127.0.0.1:8080'
 // }
 module.exports = {
+    devtool: 'eval-source-map',// 打包调试
     // 入口文件的配置项
     entry: {
         entry: './src/entry.js'
@@ -75,6 +76,19 @@ module.exports = {
                     use:[{ loader:'css-loader'},{loader:'sass-loader'}],
                     fallback:'style-loader'
                 })
+            },
+            // babel 配置
+            {
+                test: /\.(jsx|js)$/,
+                use:{
+                    loader:"babel-loader",
+                    options:{
+                        presets:[
+                            "es2015","react"
+                        ]
+                    }
+                },
+                exclude:/node_modules/
             }
         ]
     },
