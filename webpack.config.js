@@ -6,6 +6,7 @@ const glob = require("glob");
 const pruifyCssPlugin = require("purifycss-webpack");
 const entry = require('./webpack_config/entry_webpack');
 const webpack = require('webpack');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 // var website = {
 //     publicPath: 'http://127.0.0.1:8080'
 // }
@@ -128,7 +129,12 @@ module.exports = {
             name:['jquery','vue'],
             filename:'assets/js/[name].js',
             minChunks:2//抽离几个文件
-        })
+        }),
+        // 拷贝静态资源打包
+        new copyWebpackPlugin([{
+            from:__dirname+'/src/public',//打包的静态资源目录地址
+            to:'./public' //打包到dist下面的public
+        }])
     ],
     devServer: {
         historyApiFallback: true,
