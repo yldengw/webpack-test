@@ -21,7 +21,7 @@ if(process.env.type=="build"){
     }
 }
 module.exports = {
-    devtool: 'eval-source-map',// 打包调试
+    devtool: 'eval-source-map',// 打包调试 ，如果大型项目可以使用source-map，如果是中小型项目使用eval-source-map就完全可以应对，需要强调说明的是，source map只适用于开发阶段，上线前记得修改这些调试设置
     // 入口文件的配置项
     // entry:entry.path,
     entry: {
@@ -47,6 +47,7 @@ module.exports = {
                         // query:{
                         //     name: 'index.css'
                         // }
+                        // 对postcss的配置，引入autoprefixer插件，让postCSS拥有添加前缀的能力
                     },'postcss-loader']
                   })
             },
@@ -63,10 +64,12 @@ module.exports = {
                     }
                 }]
             },
+            // 处理在html通过<img>引入图片的问题
             {
                 test: /\.(htm|html)$/i,
                  use:[ 'html-withimg-loader'] 
             },
+            // less文件打包和分离
             {
                 test: /\.less$/,
                 use:extractTextPlugin.extract({
@@ -93,7 +96,7 @@ module.exports = {
                     fallback:'style-loader'
                 })
             },
-            // babel 配置
+            // babel 配置，解析es6和react
             {
                 test: /\.(jsx|js)$/,
                 use:{
@@ -113,6 +116,7 @@ module.exports = {
         new htmlPlugin({
             template:'./index.html'
         }),// 打包html
+        // css文件分离打包
         new extractTextPlugin('index.css'),
         // 打包删掉冗余的css
         new pruifyCssPlugin({
@@ -124,7 +128,7 @@ module.exports = {
         }),
         // 加上注释
         new webpack.BannerPlugin('yldengww版权所有！'),
-        // 插件抽离jquery,vue
+        // 插件抽离jquery,vue，提取公共文件
         new webpack.optimize.CommonsChunkPlugin({
             name:['jquery','vue'],
             filename:'assets/js/[name].js',
@@ -142,6 +146,7 @@ module.exports = {
         inline: true,
         progress: true
     },
+    // 自动打包
     watchOptions:{
         poll:1000,//监测修改的时间(ms)
         aggregateTimeout :500, //防止重复按键，500毫米内算按键一次
